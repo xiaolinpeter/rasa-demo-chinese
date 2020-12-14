@@ -1,0 +1,53 @@
+version: "2.0"
+nlu:
+- intent: out_of_scope/non_chinese
+  examples: |
+    - Wie fange ich mit Rasa an？
+    - Hilf mir beim开始
+    - tschüssikowski
+    - ¿Quépasa？
+    - 静脉 ？
+    - como te llamas
+    - 下拳杜？
+    - como inicio en rasa
+    - 来吧？
+    - 科莫埃斯塔斯
+    - de donde eres
+    - de que lugar eres？
+    - epdi iruka
+    - 人文
+    - kalhmera sara ti kaneis
+    - kannst du auch deutsch？
+    - Kannst du死于auf deutsch吗？
+    - oui je besoine de l'aide
+    - que puedes hacer？
+    - tu parles francais？
+    - tudo宝
+    - tu pagal
+    - 坎恩·杜·米尔·海尔芬
+    - 土凯斯河
+    - こにちは
+    - 日本语分かる？
+    - chào
+    - 我说的不是英语。
+    - kya hindi me bat kar sakate ho
+    - Dumme萨拉
+    - αστείαλές
+    - 拉莎·科迪戈·阿比耶托
+- intent: out_of_scope/other
+  examples: |
+    - 我问你一个超出范围的问题
+    - 4 + 2 =？
+    - 注册后，我的可用余额为0.00000000。这个余额代表什么？
+    - 我在94301给了GP
+    - 我需要94301的GP
+    - 我需要一个女朋友！
+    - 我要吃蛋糕
+    - 我想买飞机
+    - 我想和你结婚
+    - 我想要一台新笔记本电脑
+    - 我要预定旅馆
+    - 我要死
+    - 我要点披萨
+    - 我想用管子
+    - 我会查的

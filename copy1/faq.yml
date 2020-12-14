@@ -1,0 +1,186 @@
+version: "2.0"
+nlu:
+- intent: faq/rasax
+  examples: |
+    - 什么是[Rasa X](prodoct)？
+    - [Rasa X](prodoct)如何工作？
+    - 什么是[X](prodoct)？
+    - 您能向我解释[rasa x](prodoct)
+    - 您能否详细说明[rasa x](prodoct)
+    - 请告诉我有关[Rasa X](prodoct)的信息
+    - [rasa x](prodoct)是什么东西。你能告诉我更多吗？
+    - [Rasa X](prodoct)的目的是什么
+    - 什么是[rasax](prodoct)
+    - [Rasa X](prodoct)与Rasa是否分开？
+    - [rasa x](prodoct)与rasacore有何关系
+    - 我需要了解[Rasa X](prodoct)
+    - 请告诉我更多有关[rasa x](prodoct)的信息
+    - 详细介绍[rasa x](prodoct)
+    - 您能告诉我有关[rasa x](prodoct)的信息吗？
+    - 我想要有关[rasa x](prodoct)的信息
+    - [Rasa X](prodoct)
+    - [RASA X](prodoct)功能
+    - 告诉我有关[rasa x](prodoct)的信息
+    - 有人可以帮我提供有关[rasa x](prodoct)的信息
+    - 我想详细了解[Rasa X](prodoct)
+    - 告诉我[rasa x](prodoct)是什么
+    - [RASA x](prodoct)是什么？
+    - 什么是[rasax](prodoct)
+    - 什么是[rasa x](prodoct)
+- intent: faq/channels
+  examples: |
+    - 您能告诉我rasa支持哪些消息传递渠道吗？
+    - 是否有Skype连接器？
+    - RASA支持信使吗？
+    - RASA支持SMS吗？
+    - RASA支持什么应用程序？
+    - 您了解rasa支持频道吗？
+    - 您知道rasa支持哪些消息传递渠道？
+    - 如何将消息传递渠道连接到rasa？
+    - rasa支持消息频道吗？
+- intent: faq/community_size
+  examples: |
+    - 您知道rasa社区的规模吗？
+    - 您知道Rasa社区有多大吗？
+    - 您知道Rasa社区中有多少人吗？
+    - Rasa社区有多大
+    - 这个社区有多大？
+    - Rasa社区传播了多远？
+    - 社区中有几名成员？
+    - Rasa社区有多大？
+    - 社区有多大？
+- intent: faq/differencecorenlu
+  examples: |
+    - [core](prodoct)与[NLU](prodoct)之间的差异
+    - 列出[core](prodoct)和[nlu](prodoct)的不同品质
+    - [nlu](prodoct)与[core](prodoct)有哪些不同之处？
+    - 有什么不同？
+    - 有什么区别
+    - [core](prodoct)和[nlu](prodoct)有什么区别
+    - [开源](prodoct)版本是否具有[core](prodoct)？
+    - 组成[Rasa Open Source](prodoct)的两个组件是什么？
+- intent: faq/differencerasarasax
+  examples: |
+    - [Rasa](prodoct)和[Rasa X](prodoct)是同一个人吗？
+    - 我可以不使用[Rasa](prodoct)来使用[Rasa X](prodoct)吗？
+    - 我可以不使用[rasa x](prodoct)使用[rasa](prodoct)吗？
+    - 是否需要[Rasa](prodoct)和[Rasa X](prodoct)？
+    - [Rasa X](prodoct)与[Rasa](prodoct)相比有什么新变化？
+    - [rasa](prodoct)与[rasa x](prodoct)之间的差异是多少
+    - 我什么时候应该使用[rasa](prodoct)，什么时候应该使用[rasa x](prodoct)
+- intent: faq/ee
+  examples: |
+    - 您能告诉我有关企业版的信息吗？
+    - 我想进一步了解Rasa X EE
+    - 告诉我有关rasa x EE的信息
+    - 我所看到的？
+    - 什么是rasa x ee？
+    - 什么是rasa x Enterprise
+    - 什么是企业版
+    - 什么是rasa x企业版
+    - 请提供您的企业包装信息
+    - 什么是rasa企业
+- intent: faq/is_programming_required
+  examples: |
+    - rasa是否需要编程知识
+    - 如何编程rasa
+    - Rasa可以用python编程
+    - 编程语言的使用
+    - 我使用什么编程语言
+    - 如何编程？
+    - 我从未编程过
+- intent: faq/languages
+  examples: |
+    - rasa可以使用哪些语言？
+    - 您可以使用哪种语言？
+    - rasa支持哪些特定语言？
+    - 它适用于[德语](language)
+    - rasa支持哪些语言？
+    - 我可以将rasa也用于另一种语言吗？
+    - 拉萨会说[葡萄牙语](language)吗？
+    - rasa可以支持这种语言吗？
+    - 拉莎能听懂这种语言吗？
+    - 我们可以制作会说[日语](language)的机器人吗？
+- intent: faq/opensource_cost
+  examples: |
+    - 你是免费的吗？
+    - 你花什么钱吗？
+    - 您能告诉我[rasa](prodoct)平台的价格是多少？
+    - [rasa](prodoct)要多少钱？
+    - 要花多少钱
+    - 我想先知道费用。
+    - 订阅费用？
+    - 订阅价格
+    - [Rasa](prodoct)的价格是多少？
+    - [RASA](prodoct)的价格是多少？？
+- intent: faq/python_version
+  examples: |
+    - 我应该使用哪个Python版本？
+    - 我应该安装哪个python版本才能运行Rasa示例？
+    - 要安装哪个版本的Python？
+    - python版本
+    - python版本？
+    - 需要什么python版本？
+    - 我要安装什么python版本
+- intent: faq/slots
+  examples: |
+    - 请定义slot。
+    - 有人知道什么是slot吗？
+    - 向我解释slot？
+    - 给我介绍槽位slot。
+    - 帮我弄清楚slot的含义。
+    - 帮助我了解什么是slot。
+    - 我不知道slot是什么
+    - 我需要有关槽位的专家意见。
+- intent: faq/tutorialcore
+  examples: |
+    - 我可以看一些core教程吗
+    - 您能告诉我一个core教程吗
+    - core教程
+    - 您有我可以遵循的core教程吗？
+    - 您是否有关于core的教程
+    - 我正在寻找core教程
+    - 我需要一个core教程
+    - 我需要一个rasacore教程
+- intent: faq/tutorialnlu
+  examples: |
+    - 我可以看看一些nlu教程吗
+    - 您能给我看个nlu教程吗
+    - 您是否有可以跟随的nlu教程
+    - 您是否有关于nlu的教程
+    - 我正在寻找nlu教程
+    - 我需要一个nlu教程
+    - 我需要一个rasa nlu教程
+- intent: faq/tutorials
+  examples: |
+    - 您有教程吗？
+    - 太好了有教程吗？
+    - 我正在寻找一些教程
+    - 有Rasa的教学课程吗？
+    - 教程!!!!!!!!!!
+    - 学习rasa的教程？
+    - 有关使用rasa的任何教程？
+    - 我可以看一些教程吗
+    - 是否有有关rasa的教程？
+    - 基本教程
+- intent: faq/voice
+  examples: |
+    - 建立一个rasa语音机器人？
+    - 我可以给声乐助手编程吗
+    - 使用rasa构建语音机器人。
+    - 我可以建立一个rasa语音机器人吗？
+    - 我可以用自己的声音与这些机器人说话吗？
+    - 我可以使用rasa构建语音机器人吗？
+    - 可以用rasa做语音机器人吗？
+    - 您可以使用rasa构建语音机器人吗？
+- intent: faq/what_is_forum
+  examples: |
+    - 您能描述一下Rasa论坛吗？
+    - 您知道Rasa论坛吗？
+    - 您有rasa论坛吗？
+    - 您如何定义Rasa论坛？
+    - rasa论坛可靠吗？
+    - 列出rasa论坛的特点？
+    - Rasa论坛的规则是什么？
+    - 一个人可以在论坛中做什么
+    - 人们在Rasa论坛中做什么？

@@ -1,0 +1,12 @@
+version: "2.0"
+nlu:
+  - lookup: products
+    examples: |
+      - core
+      - nlu
+      - x
+      - rasa x
+      - both
+      - all
+      - 两者
+      - 所有

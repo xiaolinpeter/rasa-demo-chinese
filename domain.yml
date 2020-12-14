@@ -1,0 +1,605 @@
+session_config:
+  session_expiration_time: 480
+  carry_over_slots_to_new_session: true
+intents:
+- affirm
+- ask_how_contribute
+- ask_question_in_forum
+- ask_when_next_event
+- ask_which_events
+- ask_why_contribute
+- bye
+- canthelp
+- chitchat:
+    use_entities: []
+- contact_sales
+- deny
+- enter_data:
+    use_entities: []
+- explain
+- faq:
+    use_entities:
+    - product
+- feedback
+- get_started_step1
+- get_started_step2
+- get_started_step3
+- get_started_step4
+- greet
+- how_to_get_started
+- human_handoff
+- install_rasa
+- need_help_broad
+- next_step
+- nlu_generation_tool_recommendation
+- nlu_info
+- out_of_scope
+- pipeline_recommendation
+- react_negative
+- react_positive
+- restart
+- signup_newsletter
+- source_code
+- suggestion
+- switch
+- technical_question
+- thank
+- trigger_rephrase
+- why_rasa
+- nlu_fallback
+entities:
+- amount-of-money
+- company
+- current_api
+- email
+- entity
+- feedback_value
+- job_function
+- language
+- location
+- name
+- nlu_part
+- number
+- product
+- user_type
+- prodoct
+slots:
+  budget:
+    type: any
+    influence_conversation: false
+  business_email:
+    type: any
+    influence_conversation: false
+  can_use_spacy:
+    type: bool
+    influence_conversation: true
+  company:
+    type: any
+    influence_conversation: false
+  current_api:
+    type: categorical
+    influence_conversation: true
+    values:
+    - dialogflow
+    - luis
+  docs_found:
+    type: bool
+    influence_conversation: true
+  email:
+    type: any
+    influence_conversation: false
+  entity_extractor:
+    type: categorical
+    influence_conversation: true
+    values:
+    - crfentityextractor
+    - spacyentityextractor
+    - ducklinghttpextractor
+  faq:
+    type: any
+    influence_conversation: false
+  feedback_message:
+    type: any
+    influence_conversation: false
+  feedback_value:
+    type: categorical
+    influence_conversation: true
+    values:
+    - positive
+    - negative
+  job_function:
+    type: any
+    influence_conversation: false
+  language:
+    type: categorical
+    influence_conversation: true
+    values:
+    - english
+  name:
+    type: text
+    influence_conversation: true
+  nlu_part:
+    type: categorical
+    influence_conversation: true
+    values:
+    - 实体识别
+    - 意图分类
+    - duckling
+  onboarding:
+    type: bool
+    influence_conversation: true
+  person_name:
+    type: any
+    influence_conversation: false
+  problem_description:
+    type: text
+    influence_conversation: true
+  product:
+    type: categorical
+    influence_conversation: true
+    values:
+    - core
+    - nlu
+    - x
+    - rasa
+    - all
+  shown_privacy:
+    type: any
+    influence_conversation: false
+  step:
+    type: any
+    influence_conversation: false
+  suggestion:
+    type: any
+    influence_conversation: false
+  unknown_nlu_part:
+    type: any
+    influence_conversation: false
+  unknown_product:
+    type: any
+    influence_conversation: false
+  use_case:
+    type: any
+    influence_conversation: false
+responses:
+  utter_already_subscribed:
+  - text: 看来{email}已被订阅-不错的选择！ 如果您有一段时间没有收到新闻通讯，请检查您的垃圾邮件文件夹 🗑
+  utter_also_explain_core:
+  - text: 你还想让我解释一下rasa core吗？
+  utter_also_explain_nlu:
+  - text: 你还想让我解释一下rasa nlu吗？
+  utter_also_explain_nlucore:
+  - text: 你还想让我解释一下rasa core和 rasa nlu吗？
+  utter_anything_else:
+  - text: 还有什么我能帮你的吗
+  utter_ask_budget:
+  - text: 您的对话式AI的年度预算是多少？ 💸
+  utter_ask_business_email:
+  - text: 你的商务电子邮件是什么?
+  utter_ask_company:
+  - text: 你在哪家公司上班
+  utter_ask_continue_newsletter:
+  - text: 您是否仍想订阅新闻通讯？
+  utter_ask_continue_rasa_init:
+  - text: 您是否要继续执行创建上下文助手的步骤？
+  utter_ask_continue_sales:
+  - text: 您还想和销售员谈谈吗？
+  utter_ask_describe_problem:
+  - text: 您能描述您遇到的问题吗？
+  utter_ask_docs_help:
+  - buttons:
+    - payload: /affirm
+      title: 👍
+    - payload: /deny
+      title: 👎
+    text: Did that help?
+  utter_ask_email:
+  - text: 你的电子邮件地址是什么？
+  utter_ask_entities:
+  - text: 你想提取什么类型的实体？
+  utter_ask_explain_nlucorex:
+  - text: 你想知道更多关于Rasa Open Source还是rasa x？
+  utter_ask_feedback:
+  - buttons:
+    - payload: '/feedback{{"feedback_value": "positive"}}'
+      title: 👍
+    - payload: '/feedback{{"feedback_value": "negative"}}'
+      title: 👎
+    text: 这次对话进行得如何
+  utter_ask_feedback_message:
+  - text: 对不起，我帮不了你。 如果您对我的改进有任何建议，请告诉我。
+  utter_ask_for_nlu_specifics:
+  - text: 您想了解的任何特别信息，例如 意图分类或实体识别?
+  utter_ask_goal:
+  - text: 如果您是Rasa的新手，我可以帮助您入门！ 如果您已经开始建立助手，您也可以问我有关Rasa的不同部分 🐦
+  utter_ask_if_problem:
+  - text: 在安装过程中是否遇到任何问题？
+  utter_ask_job_function:
+  - text: 你的工作是什么？ 🕴
+  utter_ask_migration:
+  - text: 您要从其他工具迁移吗?
+  utter_ask_name:
+  - text: 你的名字是什么
+  utter_ask_person_name:
+  - text: 你的名字是什么
+  utter_ask_use_case:
+  - text: 您想使用Rasa构建什么类型的助手？
+  utter_ask_which_product:
+  - text: 好的，您想进一步了解哪种产品？ Rasa open source还是Rasa X？
+  utter_ask_which_tool:
+  - text: 您要从哪个工具迁移？
+  utter_awesome:
+  - text: Awesome, thanks! 👍
+  - text: Sweet, thank you! 😄
+  - text: Thanks! 👌
+  - text: Cool, thank you!
+  - text: 谢谢! 👍
+  utter_built_bot_before:
+  - text: 您之前是否构建过上下文助手或机器人？
+  utter_bye:
+  - text: 再见!
+  - text: Bye!
+  utter_can_do:
+  - text: 当然可以!
+  - text: 可以!
+  - text: 知道了. 👍
+  utter_canthelp:
+  - text: 对不起，我帮不了你。 如果您对Rasa有一般疑问，请前往我们的[论坛]（https://forum.rasa.com/），否则，请通过以下网址与我们联系
+      [hi@rasa.com](mailto:hi@rasa.com) 。
+  utter_cantsignup:
+  - text: 如果您不提供电子邮件，我无法为您注册 😉
+  utter_change_mind:
+  - text: 您仍然可以在下面改变主意。
+  utter_chatbot_tutorial:
+  - text: 没问题, 这是[数据营课程](https://www.datacamp.com/courses/building-chatbots-in-python)
+      可以教你建立自己的机器人🤓
+  utter_confirm_salesrequest:
+  - text: 谢谢您，我们会尽快与您联系! ✉️
+  utter_confirmationemail:
+  - text: 我们已向{email}发送确认电子邮件。
+  utter_contact_email:
+  - text: 您无法在此聊天中直接与他人交谈，但可以通过hi@rasa.com向我们发送电子邮件。
+  utter_continue_step2:
+  - channel: socketio
+    text: " 让我们继续，请点击。\n [这里](javascript:window.localStorage.setItem(%22mrbot_next_message%22%2CJSON.stringify(%7Bmessage%3A%22%2Fget_started_step2%22%2Cexpiry%3ADate.now()%2B6e4%7D))%2Clocation.href%3D%22https%3A%2F%2Frasa.com%2Fdocs%2Fgetting-started%23build-an-assistant-with-rasa-open-source%22%3B)."
+  - buttons:
+    - payload: /get_started_step2
+      title: Next step
+    text: 让我们继续，请点击下面的按钮。.
+  utter_continue_step3:
+  - channel: socketio
+    text: "让我们进行，请点击\n [这里](javascript:window.localStorage.setItem(%22mrbot_next_message%22%2CJSON.stringify(%7Bmessage%3A%22%2Fget_started_step3%22%2Cexpiry%3ADate.now()%2B6e4%7D))%2Clocation.href%3D%22https%3A%2F%2Frasa.com%2Fdocs%2Fgetting-started%23improve-your-assistant-with-rasa-x%22%3B)."
+  - buttons:
+    - payload: /get_started_step3
+      title: Next step
+    text: 让我们继续，请点击下面的按钮。
+  utter_continue_step4:
+  - channel: socketio
+    text: "让我们进行，请点击\n [这里](javascript:window.localStorage.setItem(%22mrbot_next_message%22%2CJSON.stringify(%7Bmessage%3A%22%2Fget_started_step4%22%2Cexpiry%3ADate.now()%2B6e4%7D))%2Clocation.href%3D%22https%3A%2F%2Frasa.com%2Fdocs%2Fgetting-started%23join-the-community%22%3B)."
+  - buttons:
+    - payload: /get_started_step4
+      title: Next step
+    text: 让我们继续，请点击下面的按钮.
+  utter_crf:
+  - text: 对于自定义的实体，我建议用 [CRFEntityExtractor](https://rasa.com/docs/rasa/nlu/components/#crfentityextractor)
+      组件. 阅读有关如何标注数据中实体的更多信息 ，请点击[这里](https://rasa.com/docs/nlu/dataformat/).
+  utter_default:
+  - text: 对不起，我没听懂。 你能换下说法吗？
+  - text: 我听不懂，您能改下说法吗？
+  - text: 对不起，但我不理解你。 你能改一下你的意思吗
+  utter_direct_to_forum_for_help:
+  - text: 如果您仍然遇到问题，请寻求我们的帮助 [forum](https://forum.rasa.com/).
+  utter_direct_to_step2:
+  - channel: socketio
+    text: 你可以点击[这里](javascript:window.localStorage.setItem(%22mrbot_next_message%22%2CJSON.stringify(%7Bmessage%3A%22%2Fget_started_step2%22%2Cexpiry%3ADate.now()%2B6e4%7D))%2Clocation.href%3D%22https%3A%2F%2Frasa.com%2Fdocs%2Fgetting-started.html%23build-an-assistant-with-rasa-open-source%22%3B)
+      如果您想转到下一步尝试开源rasa
+  - buttons:
+    - payload: /get_started_step2
+      title: Next step
+    text: 如果要转到下一步尝试开源rasa，可以单击下面的按钮。
+  utter_direct_to_step3:
+  - channel: socketio
+    text: "如果您没有问题, 请点击\n [这里](javascript:window.localStorage.setItem(%22mrbot_next_message%22%2CJSON.stringify(%7Bmessage%3A%22%2Fget_started_step3%22%2Cexpiry%3ADate.now()%2B6e4%7D))%2Clocation.href%3D%22https%3A%2F%2Frasa.com%2Fdocs%2Fgetting-started%23improve-your-assistant-with-rasa-x%22%3B)\n\
+      \ 请在准备好后单击下面的按钮转到下一步。 或者，在您问完问题后的任何时候，说“带我进入下一步"
+  - buttons:
+    - payload: /get_started_step3
+      title: Next step
+    text: 如果您没有问题，请在准备好后单击下面的按钮转到下一步。 或者，在您问完问题后的任何时候，说“带我进入下一步。
+  utter_direct_to_step4:
+  - channel: socketio
+    text: 最后一步是加入社区。 点击按钮查找更多信息关于我们的社区 [这里](javascript:window.localStorage.setItem(%22mrbot_next_message%22%2CJSON.stringify(%7Bmessage%3A%22%2Fget_started_step4%22%2Cexpiry%3ADate.now()%2B6e4%7D))%2Clocation.href%3D%22https%3A%2F%2Frasa.com%2Fdocs%2Fgetting-started%23join-the-community%22%3B)
+  - buttons:
+    - payload: /get_started_step4
+      title: Next step
+    text: 最后一步是加入社区。 点击按钮查找更多信息关于我们的社区.
+  utter_docu:
+  - text: 如果您想要一些更出色的Rasa内容，请查看我们的 [论坛](https://forum.rasa.com/).
+  utter_dont_know_nlu_part:
+  - text: 嗯，好像我还没有了解NLU的那部分！
+  utter_duckling:
+  - text: 对于该实体，我建议使用基于规则的[DucklingHTTPExtractor](https://rasa.com/docs/rasa/nlu/components/#ducklinghttpextractor)
+      组件 🐥
+  utter_duckling_info:
+  - text: Duckling是Facebook的基于规则的实体识别库. [这里](https://duckling.wit.ai/)是其文档的链接.
+  utter_encourage_building_bot:
+  - text: 酷, 祝你好运建立起自己的第一个机器人! 🤖
+  utter_explain_budget:
+  - text: 如果您告诉我们您的预算，我们可以准备最适合您的套餐.
+  utter_explain_business_email:
+  - text: 之后，我们需要您的公司电子邮件才能与您联系。 否则，我们无法帮助您设置Rasa.
+  utter_explain_company:
+  - text: 只是为了完整性.
+  utter_explain_core:
+  - text: Core决定这次对话的下一步。 它的基于机器学习的对话管理根据NLU的输入，对话历史记录和您的训练数据来预测下一个最佳动作。 （示例：Core拥有87％的置信度，ask_primary_change是与用户确认是否要更改其主要联系信息的下一个最佳操作。）
+  utter_explain_job_function:
+  - text: 您的工作职能有助于我们了解如何与您最好地交谈.
+  utter_explain_nlu:
+  - text: NLU根据您以前的培训数据了解用户的信息： -意图分类： 根据预定义的意图来解释含义（例如：“请将确认发送到amy@example.com”是具有93％置信度的send_confirmation意图）
+      -实体提取： 识别结构化数据（示例：amy@example.com是电子邮件）
+  utter_explain_person_name:
+  - text: 为了以后可以与您联系，我们想知道您的名字。
+  utter_explain_rasa_components:
+  - text: 好了，我将简要地解释一下构成Rasa的组件。
+  utter_explain_use_case:
+  - text: 为了给您最好的帮助，我们需要知道您要使用构建Rasa的内容.
+  utter_explain_x:
+  - text: Rasa X是一个工具集，用于通过帮助您将真实的用户对话转化为训练数据来改进使用开源rasa构建的上下文助手。Rasa X包含用户界面和REST
+      API.
+  utter_faq_channels_more:
+  - text: 请查看我们的 [文档](https://rasa.com/docs/rasa/user-guide/messaging-and-voice-channels/)
+      获取更多的信息.
+  utter_faq_languages_more:
+  - text: 请阅读 [文档](https://rasa.com/docs/rasa/nlu/language-support/)获取更多的信息.
+  utter_faq_ee_more:
+  - text: 请阅读Rasa X [文档](https://rasa.com/docs/rasa-x/) 获取更多信息
+  utter_faq_slots_more:
+  - text: 请阅读 [文档](https://rasa.com/docs/rasa/core/slots/)获取更多信息
+  utter_faq_voice_more:
+  - text: 请阅读 [文档](https://rasa.com/docs/rasa/user-guide/messaging-and-voice-channels/)获取更多信息
+  utter_tutorialnlu:
+  - text: Rasa Masterclass episodes 2-4 focus on NLU. Check out episode 2 [here](https://www.youtube.com/watch?v=k5UeywXA28k).
+  utter_first_bot_with_rasa:
+  - text: 您是Rasa新手吗？
+  utter_get_started_step1:
+  - text: 如果您是Rasa新手，我可以帮助您入门！ 我们可以？
+  utter_get_started_step2:
+  - text: 我可以向您展示如何开始使用Rasa构建您的第一个AI助手。你准备好了吗?
+  utter_get_started_step3:
+  - text: 现在，让我们看一下Rasa X，以改善您的助手。 听起来不错？
+  utter_get_started_step4:
+  - text: 作为Rasa开发人员，您将成为一个庞大社区的一部分。 您可以向我询问即将举行的Rasa活动，捐款方式或我们的论坛。
+  utter_getstarted:
+  - text: 为了确定我如何能最好地帮助您，我将问您几个问题.
+  utter_getstarted_new:
+  - text: 我看到你是新来的，让我问你一个快速的问题，以确定最好我能帮你.
+  utter_great:
+  - text: 太好了! 👍
+  - text: 太棒了 🙌
+  - text: 太酷了! 🎉
+  - text: 酷毙了, 我们行动把 🚀
+  utter_greet:
+  - text: 你好, 我的名字Sara.
+  - text: 你是, 我是Sara!
+  - text: 你是! 我的名字是1前·  ·Sara.
+  utter_greet_name:
+  - text: 你好, {name}!
+  - text: Hello, {name}!
+  - text: Hey, {name}!
+  utter_greet_noname:
+  - text: 你好!
+  - text: Hi!
+  - text: Hey there!
+  utter_have_you_used_rasa_before:
+  - text: 你之前用过rasa吗
+  utter_inform_privacypolicy:
+  - text: 通过与我聊天，您同意我们的[隐私政策](https://rasa.com/privacy-policy/).
+  utter_installation_command:
+  - text: 您首先需要使用此安装命令pip install rasa安装开源rasa
+  utter_installation_command_followup:
+  - text: 一旦你做好了, 使用下面安装命令安装开源rasa：pip install rasa
+  utter_having_trouble_installing:
+  - text: 如果你安装过程中又问题，你可以查看详细的安装介绍[这里](https://rasa.com/docs/rasa/user-guide/installation/#step-by-step-installation-guide).
+  utter_installation_instructions:
+  - text: 如果您尚未阅读详细的说明指南，则可以查看[这里](https://rasa.com/docs/rasa/user-guide/installation/#step-by-step-installation-guide).
+  utter_ask_ready_to_build:
+  - text: 如果成功安装了它，您准备开始构建上下文助手了吗？
+  utter_link_to_forum:
+  - text: '这是该论坛的链接: [https://forum.rasa.com](https://forum.rasa.com)'
+  utter_moreinformation:
+  - text: 当然，我们可以预订销售电话！让我们互相先认识 😉
+  utter_must_accept:
+  - text: 直到你接受，我们才能讲话
+  utter_nlu_entity_tutorial:
+  - text: '[Part 2](https://blog.rasa.com/rasa-nlu-in-depth-part-2-entity-recognition/)
+      我们的软件工程师Tobias撰写的Rasa NLU In Depth系列文章是关于实体识别的出色教程.'
+  utter_nlu_intent_tutorial:
+  - text: 查看软件工程师Tobias的Rasa NLU In Depth系列的[第1部分]（https://blog.rasa.com/rasa-nlu-in-depth-part-1-intent-classification/），以了解更多信息
+      意向分类.
+  utter_nlu_tools:
+  - text: 我们建议使用Rasa X从UI中轻松地创建和分类NLU数据
+  utter_no_email:
+  - text: 嗯，我不确定这是不是一封有效的电子邮件，请确保包括完整地址 😅
+  utter_no_guide_for_switch:
+  - text: 抱歉，我们还没有该工具的迁移指南。 但是，您仍然可以按照[tutorial]（https://rasa.com/docs/rasa/user-guide/rasa-tutorial/）来基于您现有的助手构建Rasa助手！
+  utter_no_more_steps:
+  - text: 看来您已经完成了所有步骤！
+  utter_no_speak:
+  - text: 恐怕那时我们不能聊天了 😢
+  utter_nohelp:
+  - text: 目前，这就是我所能做的，请随时尝试。 如果你有任何关于我应该学习的建议，让我知道！
+  utter_not_sure:
+  - text: 嗯，不确定你的意思...
+  utter_noworries:
+  - text: 别担心!
+  - text: 别客气
+  - text: 我很乐意提供帮助。
+  utter_offer_recommendation:
+  - text: 您要我推荐pipeline吗？
+  utter_possibilities:
+  - text: 您可以向我询问： n-如何开始使用Rasa  n-组件\ Rasa， n-预订销售电话 n-订阅我们的新闻通讯 n
+  utter_possibilities_to_contribute:
+  - text: 查看[贡献rasa]（https://github.com/orgs/RasaHQ/projects/23）板，以获取有关如何贡献代码或内容的想法。
+      您也可以通过回答来帮助 [论坛](http://forum.rasa.com)上其他成员的问题。
+  utter_rasa_components_details:
+  - text: Rasa Open Source是用于自动文本和基于语音的对话。 Rasa X是可帮助您构建，改进和部署由Rasa开源框架提供支持的AI助手。
+  utter_react_negative:
+  - text: 😕
+  - text: 😞
+  - text: 😥
+  - text: 😢
+  utter_react_positive:
+  - text: 😄
+  - text: 😊
+  - text: 👏
+  - text: 😍
+  utter_reasons_to_contribute:
+  - text: 以下是您应贡献的一些理由：1 探索源代码深入 2贡献开源软件3 赚取[Rasa swag]）(https://rasa.com/community/contribute/)！
+      n
+  utter_recommend_forum:
+  - text: 您应该加入[Rasa社区论坛](https://forum.rasa.com)，其中您可以提出有关Rasa开源和Rasa X的问题，查找资源，以及
+      随时了解Rasa的最新动态。
+  utter_response_why_email:
+  - text: 我需要您的电子邮件地址来注册您的新闻通讯。
+  - text: 我需要它，以便我可以注册您的新闻通讯。
+  utter_restart:
+  - text: 加载中...我已经重新启动！ 🤯
+  - text: 恭喜您重新启动了我！ 😉
+  utter_restart_with_button:
+  - buttons:
+    - payload: /restart
+      title: Restart
+    text: 如果要重新开始，请单击下面的按钮.
+  utter_run_rasa_init:
+  - text: '您现在可以创建一个新的Rasa助手，也可以通过简单地运行rasa init。这附带一些样本训练数据和必需的配置文件可以帮助您入门。 '
+  utter_sales_contact:
+  - text: 谢谢，现在我需要知道我们如何联系您。
+  utter_salesrequest_failed:
+  - text: 很遗憾，我们无法存储您的信息。您仍然可以通过我们的[网站]（https://rasa.com/contact-sales/）与销售人员联系。🙂
+  utter_search_bar:
+  - text: 暂时尝试使用上面的搜索栏
+  utter_source_code:
+  - text: 像Rasa Open Source一样，我的代码可在GitHub上免费获得！ 你可以找到在[这里]（https://github.com/RasaHQ/rasa-demo）
+      👻
+  utter_pipeline_english:
+  - text: 如果您的培训数据是英语，那么这是一个很好的起点[推荐的pipeline]（https://rasa.com/docs/rasa/nlu/choosing-a-pipeline/#the-short-answer），它同时使用了预训练和监督嵌入。
+  utter_spacy:
+  - text: SpaCy为此具有出色的经过预先训练的命名实体识别器-请查看此[交互式演示]（https://demos.explosion.ai/displacy-ent/）。
+      我建议使用[SpacyEntityExtractor]（https://rasa.com/docs/rasa/nlu/components/#spacyentityextractor）
+      pipeline中的component。.
+  utter_pipeline_nonenglish_spacy:
+  - text: Looks like for your {language} assistant, a good starting point is the [recommended
+      pipeline](https://rasa.com/docs/rasa/nlu/choosing-a-pipeline/#the-short-answer)
+      for languages other than English. If you want to use pretrained embeddings,
+      the [pipeline using SpacyNLP](https://rasa.com/docs/rasa/nlu/choosing-a-pipeline/#a-longer-answer)
+      also works for your language.
+  utter_suggestion:
+  - text: 在此阶段，我还没有技能可以帮助您，但是请问你🈶的任何问题，以便将来我可以学习！!
+  utter_switch_dialogflow:
+  - text: 我们有一个从DialogFlow迁移的指南[这里](https://www.rasa.com/docs/rasa/migrate-from/google-dialogflow-to-rasa/).
+  utter_switch_luis:
+  - text: 我们有一个从LUIS迁移的指南 [这里](https://www.rasa.com/docs/rasa/migrate-from/microsoft-luis-to-rasa/).
+  utter_pipeline_nonenglish_nospacy:
+  - text: For {language}, a good starting point is the [recommended pipeline](https://rasa.com/docs/rasa/nlu/choosing-a-pipeline/#the-short-answer)
+      for languages other than English.
+  utter_thank_suggestion:
+  - text: 感谢你的输入
+  utter_thumbsup:
+  - text: 👍
+  - text: 好的.
+  - text: ok
+  utter_what_help:
+  - text: 好的，有什么可以帮您的吗？
+  utter_what_language:
+  - text: 您的助手使用哪种语言？
+  utter_x_tutorial:
+  - text: Rasa Masterclass介绍了如何[设置Rasa X](https://www.youtube.com/watch?v=IUYdwy8HPVc)以及如何
+      通过与以下人员共享您的助手来[改善您的助手](https://www.youtube.com/watch?v=LWzsS5Q-RoI).
+  utter_ask_rephrase:
+  - text: 你可以对该问题改写一下吗
+  utter_no_further_info:
+  - text: 抱歉，这就是我所掌握的所有信息 😕
+  utter_why_rasa:
+  - text: Rasa提供了构建所需的基础架构和工具高效，灵活的工作助手。 更重要的是，Rasa是**开源**-没有黑盒魔术！
+  utter_ask_more:
+  - text: 您想了解更多吗？
+  utter_ask_more_details:
+  - text: 您能说得更具体些吗？
+  - text: 您能告诉我更多吗？
+  utter_ask_more_migrate:
+  - text: 您想了解更多有关切换到Rasa的好处吗？
+  utter_why_rasa_research:
+  - text: Rasa投资进行广泛的研究以创造领先优势对话式AI，使开发人员能够创建最佳的文字和没有专门研究团队的语音助手。
+  utter_why_rasa_nlu:
+  - text: Rasa的NLU支持多种语言，一种和多种意图，以及预训练和自定义实体。
+  utter_why_rasa_dialogue:
+  - text: 基于Rasa构建的助手可以进行有意义的对话与用户的对话-记住上下文和集成业务逻辑。 这里没有状态机！
+  utter_why_rasa_os:
+  - text: 由于Rasa是开源的，因此您可以自定义机器人并尽可能多地探索其内部功能，也没有隐藏的算法。
+  utter_why_rasa_compliant:
+  - text: 如果您优先考虑数据安全和法规遵从性，Rasa可以支持！您可以在云中或本地部署Rasa保持对助理及其数据的完全控制。
+actions:
+- action_default_ask_affirmation
+- action_default_fallback
+- action_docs_search
+- action_explain_sales_form
+- action_set_faq_slot
+- action_explain_faq
+- action_forum_search
+- action_get_community_events
+- action_greet_user
+- action_next_step
+- action_pause
+- action_set_onboarding
+- action_store_bot_language
+- action_store_entity_extractor
+- action_store_problem_description
+- action_store_unknown_nlu_part
+- action_store_unknown_product
+- action_tag_docs_search
+- action_tag_feedback
+- action_submit_subscribe_newsletter_form
+- action_submit_sales_form
+- action_submit_suggestion_form
+- validate_subscribe_newsletter_form
+- validate_sales_form
+forms:
+  suggestion_form:
+    suggestion:
+    - type: from_text
+  sales_form:
+    budget:
+    - entity: amount-of-money
+      type: from_entity
+    - entity: number
+      type: from_entity
+    - intent: enter_data
+      type: from_text
+    business_email:
+    - entity: email
+      type: from_entity
+    - intent: enter_data
+      type: from_text
+    company:
+    - entity: company
+      type: from_entity
+    - intent: enter_data
+      type: from_text
+    job_function:
+    - entity: job_function
+      type: from_entity
+    - intent: enter_data
+      type: from_text
+    person_name:
+    - entity: name
+      type: from_entity
+    - intent: enter_data
+      type: from_text
+    use_case:
+    - intent: enter_data
+      type: from_text
+  subscribe_newsletter_form:
+    email:
+    - entity: email
+      type: from_entity
+    - intent: enter_data
+      type: from_text
